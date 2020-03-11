@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block content %}
+<h2>Question</h2>
+
+{% for msg in get_flashed_messages() %}
+<section class="messages">
+    <p class="message">{{messages}}</p>
+</section>
+{% endfor %}
+
+
+<p>{{question.question}}</p>
+
+{% if choices %}
+<form action="/answer" method="POST">
+    {% for choice in choices %}
+    <label for="answer">{{choice}}</label>
+    <input type="radio" name="answer" id="{{choice}}" value="{{choice}}">
+    {% endfor %}
+    <input type="hidden" name="que_num" value="{{que_num}}">
+    <button>Submit</button>
+</form>
+{% else %}
+<form action="/answer" method="POST">
+    <label for="answer">yes</label>
+    <input type="radio" name="answer" id="yes" value="yes">
+    <label for="answer">no</label>
+    <input type="radio" name="answer" id="no" value="no">
+    <input type="hidden" name="que_num" value="{{que_num}}">
+    <button>Submit</button>
+</form>
+
+{% endif %}
+
+{% endblock %}
