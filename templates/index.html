@@ -7,19 +7,16 @@
     <link rel="stylesheet" href="/static/app.css">
   </head>
   <body>
-      <h1>{{title}}</h1>
-
-      <p>{{instructions}}</p>
-    
+    <h1>Choose which survey you'd like to take!</h1>
       {% block content %}
-      <select name="survey">
+      <form method="POST">
+      <select name="survey_title">
         {% for survey in surveys %}
         <option value="{{survey.title}}">
             {{survey.title}}
         </option>
         {% endfor %}
       </select>
-      <form action="/questions/0">
         <button>Start</button>
       </form>
       {% endblock %}
