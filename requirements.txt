@@ -22,7 +22,7 @@ pickleshare==0.7.5
 Pillow==10.0.1
 prompt-toolkit==3.0.3
 pycodestyle==2.5.0
-Pygments==2.7.4
+Pygments==2.15.0
 pylint==2.4.4
 python-dotenv==0.12.0
 PyYAML==5.3
